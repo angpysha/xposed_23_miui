@@ -4,6 +4,6 @@ version=86 (Systemless by topjohnwu and aviraxp)
 versionCode=86
 author=rovo89, SolarWarez and topjohnwu
 description=Xposed Framework by rovo89, Modified by SolarWarez, ported to Magisk by aviraxp based on topjohnwu's work
-support=
+support=http://forum.xda-developers.com/xposed/unofficial-systemless-xposed-framework-t3485293
 donate=http://repo.xposed.info/donate
 cacheModule=false
