@@ -99,6 +99,7 @@ set_permissions() {
   set_perm  $MODPATH/system/bin/app_process32   0       2000    0755         u:object_r:zygote_exec:s0
   set_perm  $MODPATH/system/bin/dex2oat         0       2000    0755         u:object_r:dex2oat_exec:s0
   set_perm  $MODPATH/system/bin/patchoat        0       2000    0755         u:object_r:zygote_exec:s0
+  set_perm  /data/data/de.robv.android.xposed.installer/conf/modules.list        0       0    0777         u:object_r:zygote_exec:s0
 
   ($IS64BIT) && set_perm $MODPATH/system/bin/app_process64   0   2000  0755  u:object_r:zygote_exec:s0
 }
