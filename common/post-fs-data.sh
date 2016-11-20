@@ -23,7 +23,7 @@ bind_mount() {
   fi
 }
 
-find $XPOSEDPATH/system -type f 2>/dev/null | while read f; do
+/data/busybox/find $XPOSEDPATH/system -type f 2>/dev/null | while read f; do
   TARGET=${f#$XPOSEDPATH}
   bind_mount $f $TARGET
 done

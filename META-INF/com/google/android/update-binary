@@ -90,10 +90,10 @@ set_perm() {
 }
 
 set_perm_recursive() {
-  find $1 -type d 2>/dev/null | while read dir; do
+  /data/busybox/find $1 -type d 2>/dev/null | while read dir; do
     set_perm $dir $2 $3 $4 $6
   done
-  find $1 -type f 2>/dev/null | while read file; do
+  /data/busybox/find $1 -type f 2>/dev/null | while read file; do
     set_perm $file $2 $3 $5 $6
   done
 }
@@ -362,13 +362,13 @@ set_permissions
 # Android 5.1 dirty workaround
 if [ "$API" -eq "22" ]; then
   ui_print "- Android 5.1 workaround"
-  find /system -type f -name '*.odex*' 2>/dev/null | while read ODEX; do
+  /data/busybox/find /system -type f -name '*.odex*' 2>/dev/null | while read ODEX; do
     # Replace the folder
     mktouch $HELPERPATH${ODEX%/*}/.replace
     # Create a dummy for renaming
     mktouch "$HELPERPATH$ODEX".xposed
   done
-  find /system/framework -type f -name 'boot.*' 2>/dev/null | while read BOOT; do
+  /data/busybox/find /system/framework -type f -name 'boot.*' 2>/dev/null | while read BOOT; do
     mktouch $HELPERPATH$BOOT
   done
   # Enable auto_mount

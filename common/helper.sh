@@ -24,14 +24,14 @@ bind_mount() {
 }
 
 # Android 5.1 dirty workaround
-find $HELPERPATH/system -type f -name "*.odex*.xposed" -size 0 2>/dev/null | while read ODEX; do
+/data/busybox/find $HELPERPATH/system -type f -name "*.odex*.xposed" -size 0 2>/dev/null | while read ODEX; do
   ORIG=${ODEX%.xposed}
   ORIG=${ORIG/$HELPERPATH/$MIRRDIR}
   TARGET=${ODEX#$HELPERPATH}
   bind_mount $ORIG $TARGET
 done
 
-find $HELPERPATH/system/framework -type f -name "boot.*" -size 0 2>/dev/null | while read BOOT; do
+/data/busybox/find $HELPERPATH/system/framework -type f -name "boot.*" -size 0 2>/dev/null | while read BOOT; do
   ORIG=${BOOT/$HELPERPATH/$MIRRDIR}
   TARGET=${BOOT#$HELPERPATH}
   bind_mount $ORIG $TARGET
